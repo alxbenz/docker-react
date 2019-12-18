@@ -14,5 +14,7 @@ RUN npm run build
 
 # define base image as another step
 FROM nginx
+# exposes a certain port # used by AWS automatically
+EXPOSE 80
 # copy from "builder" stage to current image
 COPY --from=builder /app/build /usr/share/nginx/html
